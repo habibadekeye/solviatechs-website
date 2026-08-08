@@ -61,8 +61,9 @@ export default function Products() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           <ScrollReveal>
             <div className="bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/20 p-8 rounded-2xl border-2 border-accent">
-              <div className="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mb-6">
-                <Shield className="text-white" size={32} />
+              <div className="mb-6">
+                <img src="/Safeops_logo_light.svg" alt="SafeOps HSE" className="h-20 w-auto dark:hidden" />
+                <img src="/SafeOps_logo_Dark.svg" alt="SafeOps HSE" className="h-20 w-auto hidden dark:block" />
               </div>
 
               <div className="flex items-center gap-2 mb-4">
