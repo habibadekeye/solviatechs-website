@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +9,11 @@
 
   html {
     scroll-padding-top: 5rem;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   body {
@@ -18,8 +21,32 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   }
 
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    @apply tracking-tight;
+  }
+
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
+
+  a,
+  button,
+  [role='button'] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   ::selection {
-    @apply bg-[#9CAF2E]/30;
+    @apply bg-[#3B82F6]/30;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-[#2563EB] ring-offset-2 dark:ring-offset-gray-900;
   }
 
   ::-webkit-scrollbar {
@@ -45,11 +72,15 @@
   }
 
   .text-slate {
-    @apply text-[#2E3A40] dark:text-gray-300;
+    @apply text-[#334155] dark:text-gray-300;
   }
 
   .text-accent {
-    @apply text-[#9CAF2E];
+    @apply text-[#2563EB] dark:text-[#3B82F6];
+  }
+
+  .hover-accent:hover {
+    @apply text-[#2563EB] dark:text-[#3B82F6];
   }
 
   .bg-primary {
@@ -57,19 +88,19 @@
   }
 
   .bg-slate {
-    @apply bg-[#2E3A40] dark:bg-gray-800;
+    @apply bg-[#334155] dark:bg-gray-800;
   }
 
   .bg-soft-white {
-    @apply bg-[#F7F9FA] dark:bg-gray-800;
+    @apply bg-[#F8FAFC] dark:bg-gray-800;
   }
 
   .bg-accent {
-    @apply bg-[#9CAF2E];
+    @apply bg-[#3B82F6];
   }
 
   .border-accent {
-    @apply border-[#9CAF2E];
+    @apply border-[#3B82F6];
   }
 
   .animate-fade-in-up {
@@ -105,51 +136,59 @@
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0B1F2A] to-[#2E3A40] dark:from-white dark:to-gray-300;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0B1F2A] to-[#334155] dark:from-white dark:to-gray-300;
   }
 
   .gradient-accent-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#9CAF2E] to-[#7D8F1E];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#3B82F6] to-[#2563EB];
   }
 
   .gradient-mesh {
     background-image: 
-      radial-gradient(at 20% 20%, rgba(156, 175, 46, 0.08) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, rgba(156, 175, 46, 0.05) 0px, transparent 50%),
+      radial-gradient(at 20% 20%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%),
       radial-gradient(at 0% 80%, rgba(11, 31, 42, 0.03) 0px, transparent 50%),
-      radial-gradient(at 80% 80%, rgba(156, 175, 46, 0.04) 0px, transparent 50%);
+      radial-gradient(at 80% 80%, rgba(59, 130, 246, 0.04) 0px, transparent 50%);
   }
 
   .gradient-mesh-dark {
     background-image: 
-      radial-gradient(at 20% 20%, rgba(156, 175, 46, 0.06) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, rgba(125, 143, 30, 0.04) 0px, transparent 50%),
+      radial-gradient(at 20% 20%, rgba(59, 130, 246, 0.06) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, rgba(37, 99, 235, 0.04) 0px, transparent 50%),
       radial-gradient(at 0% 80%, rgba(11, 31, 42, 0.1) 0px, transparent 50%),
-      radial-gradient(at 80% 80%, rgba(156, 175, 46, 0.03) 0px, transparent 50%);
+      radial-gradient(at 80% 80%, rgba(59, 130, 246, 0.03) 0px, transparent 50%);
   }
 
   .section-label {
-    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-[#9CAF2E]/10 dark:bg-[#9CAF2E]/20 text-lime-800 dark:text-[#9CAF2E] mb-4;
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-[#3B82F6]/10 dark:bg-[#3B82F6]/20 text-blue-700 dark:text-[#3B82F6] mb-4;
   }
 
   .card-base {
-    @apply bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-card transition-all duration-300;
+    @apply bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-card duration-300;
+    transition-property: color, background-color, border-color, box-shadow, transform;
+    transition-timing-function: ease-out;
   }
 
   .card-hover {
-    @apply hover:shadow-card-hover hover:-translate-y-1 hover:border-[#9CAF2E]/40;
+    @apply hover:shadow-card-hover hover:-translate-y-1 hover:border-[#3B82F6]/40;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-[#0B1F2A] dark:bg-[#9CAF2E] text-white dark:text-gray-900 px-8 py-4 rounded-xl font-semibold hover:shadow-accent hover:scale-[1.02] active:scale-[0.98] transition-all duration-300;
+    @apply inline-flex items-center gap-2 bg-[#0B1F2A] dark:bg-[#2563EB] text-white dark:text-white px-8 py-4 rounded-xl font-semibold hover:shadow-accent hover:scale-[1.02] active:scale-[0.98] duration-300;
+    transition-property: color, background-color, border-color, box-shadow, transform;
+    transition-timing-function: ease-out;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 bg-transparent border-2 border-[#0B1F2A]/20 dark:border-white/20 text-[#0B1F2A] dark:text-white px-8 py-4 rounded-xl font-semibold hover:border-[#9CAF2E] hover:bg-[#9CAF2E]/5 transition-all duration-300;
+    @apply inline-flex items-center gap-2 bg-transparent border-2 border-[#0B1F2A]/20 dark:border-white/20 text-[#0B1F2A] dark:text-white px-8 py-4 rounded-xl font-semibold hover:border-[#3B82F6] hover:bg-[#3B82F6]/5 duration-300;
+    transition-property: color, background-color, border-color;
+    transition-timing-function: ease-out;
   }
 
   .btn-accent {
-    @apply inline-flex items-center gap-2 bg-[#9CAF2E] hover:bg-[#7D8F1E] text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-accent;
+    @apply inline-flex items-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white px-6 py-3 rounded-xl font-semibold duration-300 hover:shadow-accent;
+    transition-property: color, background-color, border-color, box-shadow;
+    transition-timing-function: ease-out;
   }
 }
 

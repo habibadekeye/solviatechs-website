@@ -7,10 +7,10 @@ export default {
       colors: {
         brand: {
           primary: '#0B1F2A',
-          slate: '#2E3A40',
-          accent: '#9CAF2E',
-          'accent-dark': '#7D8F1E',
-          'soft-white': '#F7F9FA',
+          slate: '#334155',
+          accent: '#3B82F6',
+          'accent-dark': '#2563EB',
+          'soft-white': '#F8FAFC',
         },
       },
       fontFamily: {
@@ -23,8 +23,8 @@ export default {
       boxShadow: {
         'card': '0 2px 8px -2px rgba(11, 31, 42, 0.08), 0 4px 16px -4px rgba(11, 31, 42, 0.06)',
         'card-hover': '0 8px 24px -4px rgba(11, 31, 42, 0.12), 0 16px 48px -8px rgba(11, 31, 42, 0.08)',
-        'accent': '0 4px 20px -2px rgba(156, 175, 46, 0.3)',
-        'accent-hover': '0 8px 30px -4px rgba(156, 175, 46, 0.4)',
+        'accent': '0 4px 20px -2px rgba(59, 130, 246, 0.3)',
+        'accent-hover': '0 8px 30px -4px rgba(59, 130, 246, 0.4)',
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',

@@ -1,72 +1,49 @@
 import { useEffect } from 'react';
-import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import FocusAreas from './components/FocusAreas';
-import SafeOpsHighlight from './components/SafeOpsHighlight';
-import About from './components/About';
-import Statistics from './components/Statistics';
-import Services from './components/Services';
-import Products from './components/Products';
-import ProductDemo from './components/ProductDemo';
-import Industries from './components/Industries';
-import CaseStudies from './components/CaseStudies';
-import Testimonials from './components/Testimonials';
-import Team from './components/Team';
-import Resources from './components/Resources';
-import FAQ from './components/FAQ';
-import Newsletter from './components/Newsletter';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import ScrollProgress from './components/ScrollProgress';
-import BackToTop from './components/BackToTop';
-import LazySection from './components/LazySection';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import Home from './pages/Home';
+import Solutions from './pages/Solutions';
+import Products from './pages/Products';
+import SafeOps from './pages/SafeOps';
+import Industries from './pages/Industries';
+import IndustryPage from './pages/IndustryPage';
+import About from './pages/About';
+import Resources from './pages/Resources';
+import ArticlePage from './pages/ArticlePage';
+import Security from './pages/Security';
+import ContactPage from './pages/Contact';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import NotFound from './pages/NotFound';
 import { reportWebVitals } from './utils/performanceMonitor';
 
-function App() {
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { path: '/', element: <Home /> },
+      { path: '/solutions', element: <Solutions /> },
+      { path: '/products', element: <Products /> },
+      { path: '/products/safeops-hse', element: <SafeOps /> },
+      { path: '/industries', element: <Industries /> },
+      { path: '/industries/:slug', element: <IndustryPage /> },
+      { path: '/about', element: <About /> },
+      { path: '/resources', element: <Resources /> },
+      { path: '/resources/:slug', element: <ArticlePage /> },
+      { path: '/security', element: <Security /> },
+      { path: '/contact', element: <ContactPage /> },
+      { path: '/privacy', element: <Privacy /> },
+      { path: '/terms', element: <Terms /> },
+      { path: '*', element: <NotFound /> },
+    ],
+  },
+]);
+
+export default function App() {
   useEffect(() => {
     reportWebVitals();
   }, []);
 
-  return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-      <ScrollProgress />
-      <Navigation />
-      <main>
-        <Hero />
-        <FocusAreas />
-        <SafeOpsHighlight />
-        <About />
-        <Statistics />
-        <Services />
-        <Products />
-        <LazySection>
-          <ProductDemo />
-        </LazySection>
-        <LazySection>
-          <Industries />
-        </LazySection>
-        <LazySection>
-          <CaseStudies />
-        </LazySection>
-        <LazySection>
-          <Testimonials />
-        </LazySection>
-        <LazySection>
-          <Team />
-        </LazySection>
-        <LazySection>
-          <Resources />
-        </LazySection>
-        <LazySection>
-          <FAQ />
-        </LazySection>
-        <Newsletter />
-        <Contact />
-      </main>
-      <Footer />
-      <BackToTop />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
-
-export default App;

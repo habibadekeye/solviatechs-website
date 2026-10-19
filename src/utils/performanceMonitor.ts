@@ -42,7 +42,7 @@ class PerformanceMonitor {
 
     try {
       observer.observe({ entryTypes: ['paint'] });
-    } catch (e) {
+    } catch {
       console.warn('FCP observation not supported');
     }
   }
@@ -56,7 +56,7 @@ class PerformanceMonitor {
 
     try {
       observer.observe({ entryTypes: ['largest-contentful-paint'] });
-    } catch (e) {
+    } catch {
       console.warn('LCP observation not supported');
     }
   }
@@ -74,7 +74,7 @@ class PerformanceMonitor {
 
     try {
       observer.observe({ entryTypes: ['first-input'] });
-    } catch (e) {
+    } catch {
       console.warn('FID observation not supported');
     }
   }
@@ -93,7 +93,7 @@ class PerformanceMonitor {
 
     try {
       observer.observe({ entryTypes: ['layout-shift'] });
-    } catch (e) {
+    } catch {
       console.warn('CLS observation not supported');
     }
   }
